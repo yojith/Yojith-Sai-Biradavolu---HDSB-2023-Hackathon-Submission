@@ -1,8 +1,57 @@
 body,h1,h5 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
-.bgimg {
+.bgimg-home {
     background-image: url("./Student helper.jpg");
     min-height: 100%;
     background-position: center;
     background-size: cover;
 }
+.bgimg-ratemyteacher {
+    background-image: url("./Rate my teacher.jpg");
+    min-height: 150%;
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: "Franklin Gothic Medium";
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+form {
+    padding-top: 250px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e598e;}
