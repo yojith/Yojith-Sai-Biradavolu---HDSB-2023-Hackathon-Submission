@@ -15,29 +15,30 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 // Defining the database as a variable
-const filestorage = collection(getFirestore(firebaseApp), "portfolio_storage");
+// const filestorage = collection(getFirestore(firebaseApp), "portfolio_storage");
 
 // Google authorization
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-const login_button = document.getElementById("login")
-const logout_button = document.getElementById("logout")
+const login_button = document.getElementById("login");
+const logout_button = document.getElementById("logout");
 
 if (login) {
     login_button.addEventListener("click", function(){
         google_login();
+        console.log("clicked");
     });
     logout_button.addEventListener("click", function(){
-        google_login();
+        logout();
     });
 }
 
 async function google_login(){
     await signInWithPopup(auth, provider).then((result) => {
         document.getElementById("name").innerHTML = "${user.displayName}"
-        login.style.display = "none";
-        logout.style.display = "block";
+        login_button.style.display = "none";
+        logout_button.style.display = "block";
     }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -50,8 +51,8 @@ async function google_login(){
 async function logout(){
     await signOut(auth).then(() => {
       document.getElementById("name").innerHTML = ""
-      login.style.display = "block";
-      logout.style.display = "none";
+      login_button.style.display = "block";
+      logout_button.style.display = "none";
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -59,4 +60,4 @@ async function logout(){
       const credential = GoogleAuthProvider.credentialFromError(error);
       console.log(errorCode, errorMessage, email, credential);
     });
-  }
+}
