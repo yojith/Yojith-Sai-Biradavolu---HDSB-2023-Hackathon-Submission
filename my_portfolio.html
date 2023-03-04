@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- links css stylesheets to html file -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+        <link rel='stylesheet' href="./style.css">
+    </head>
+    <body>
+        <!-- Nav Bar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:3px;">
+                <a href="#home" class="w3-bar-item w3-button">Student Helper</a>
+                <!-- Right-sided navbar links. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                    <a href="./rate_my_teacher.html" class="w3-bar-item w3-button">Rate My Teacher</a>
+                    <a href="./tutors.html" class="w3-bar-item w3-button">Tutors</a>
+                    <a id="login" href="#login" class="w3-bar-item w3-button">Login</a>
+                    <a id="logout" href="#logout" class="w3-bar-item w3-button" style="display: none;">Login</a>
+                    <a id="name" class="w3-bar-item"></a>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <div>
+            Student's info
+            <table id="results_table" class="w3-table w3-striped">
+            <thead>
+                <tr class="w3-black">
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="name_row">
+                    <td>Name</td><td id="name_cell"></td>
+                </tr>
+                <tr id="school_row">
+                    <td>School</td><td id="school_cell"></td>
+                </tr>
+                <tr id="grade_row">
+                    <td>Grade</td><td id="grade_cell"></td>
+                </tr>
+                <tr id="address_row">
+                    <td>Address</td><td id="address_cell"></td>
+                </tr>
+                <tr id="email_row">
+                    <td>email</td><td id="email_cell"></td>
+                </tr>
+                <tr id="phone_row">
+                    <td>phone</td><td id="phone_cell"></td>
+                </tr>                
+            </tbody>
+            </table>
+
+            <button id="update">update</button>
+            <button id="save">save</button>
+            <br>
+            Student's files
+            <table>
+            <thead>
+                <tr class="w3-black">
+                    <th>File name</th>
+                    <th>File type</th>
+                    <th>Upload date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+    </body>
+
+    <!-- linking to database -->
+    <!-- <script type="module" src="./main.js"></script> -->
+</html>
