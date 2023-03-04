@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Title Here</title>
+        <title>Home Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- links css stylesheets to html file -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-        <!-- <link rel='stylesheet' href="./style.css"> -->
+        <link rel='stylesheet' href="./style.css">
     </head>
     <body>
+        <!-- Nav Bar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:3px;">
+                <a href="#home" class="w3-bar-item w3-button">Student Helper</a>
+                <!-- Right-sided navbar links. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                    <a href="./rate_my_teacher.html" class="w3-bar-item w3-button">Rate My Teacher</a>
+                    <a href="./tutors.html" class="w3-bar-item w3-button">Tutors</a>
+                    <a id="login" href="#login" class="w3-bar-item w3-button">Login</a>
+                    <a id="logout" href="#logout" class="w3-bar-item w3-button" style="display: none;">Login</a>
+                    <a id="name" class="w3-bar-item"></a>
+                </div>
+            </div>
+        </div>
+        <!-- Header -->
+        <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+            <img class="w3-image" src="./Student helper.jpg" alt="Welcome" width="1600" height="800">
+            <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+            </div>
+        </header>
+
+
+
+        <!-- Page content -->
+        <div class="w3-content" style="max-width:1100px">
+            <!-- About Section -->
+            <div class="w3-row w3-padding-64" id="about">
+            <div class="w3-col m6 w3-padding-large w3-hide-small">
+            <img src="/s.jpg" class="w3-round w3-image w3-opacity-min" alt="PictureOfUs" width="600" height="750">
+            </div>
+        
+            <div class="w3-col m6 w3-padding-large">
+                <h1 class="w3-center">About Us</h1><br>
+                <h5 class="w3-center">Since 2023</h5>
+                <p class="w3-large">Write stuff here <span class="w3-tag w3-light-grey">about us</span></p>
+                <p class="w3-large w3-text-grey w3-hide-medium">Write stuff here about the hackathon maybe?</p>
+            </div>
+            </div>
+        
+            <hr>
+        
+            <!-- Contact Us -->
+            <div class="w3-container w3-padding-64" id="contact">
+                <h1>Contact Us</h1><br>
+                <p>If you have any issues or questions with whatever blah blah, please do no hesitate to contact out customer support center.</p>
+                <p class="w3-text-blue-grey w3-large"><b>Student Helper Customer Support, 1234 Adress Road, Oakville, ON</b></p>
+                <p>You can also contact us by phone 1800-111-1111 or email customer.support@studenthelp.com</p>
+            </div>
+            
+        <!-- End page content -->
+        </div>
+        
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-32">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        </footer>
     </body>
 
     <!-- linking to database -->
