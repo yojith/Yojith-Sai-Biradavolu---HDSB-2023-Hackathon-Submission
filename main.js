@@ -36,7 +36,7 @@ if (login) {
 
 async function google_login(){
     await signInWithPopup(auth, provider).then((result) => {
-        document.getElementById("name").innerHTML = "${user.displayName}"
+        document.getElementById("name").innerHTML = `${result.user.displayName}`
         login_button.style.display = "none";
         logout_button.style.display = "block";
     }).catch((error) => {
