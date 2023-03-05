@@ -18,10 +18,10 @@
                     <a href="./home.html" class="w3-bar-item w3-button">Home</a>
                     <a href="./rate_my_teacher.html" class="w3-bar-item w3-button">Rate My Teacher</a>
                     <a href="./tutors.html" class="w3-bar-item w3-button">Tutors</a>
-                    <a href="./login.html" class="w3-bar-item w3-button">Login</a>
-                    <a href="./registration.html" class="w3-bar-item w3-button">Register</a>
-                    <a id="logout" href="#logout" class="w3-bar-item w3-button" style="display: none;">Login</a>
-                    <a id="name" class="w3-bar-item"></a>
+                    <a id="login_button" href="./login.html" class="w3-bar-item w3-button">Login</a>
+                    <a id="register_button" href="./registration.html" class="w3-bar-item w3-button">Register</a>
+                    <a id="logout_button" href="#logout" class="w3-bar-item w3-button" style="display: none;">Logout</a>
+                    <a id="name" href="./my_portfolio.html" class="w3-bar-item w3-button"></a>
                 </div>
             </div>
         </div>
@@ -30,13 +30,13 @@
         <header class="bgimg-login w3-display-container" id="home">
             <div class="w3-display-middle w3-center">
                 <h1 style="font-size: 100px; padding-top: 50px;">Login</h1>
-                <form id="teacher-rating-form" style="padding-top: 20px;">
+                <div id="login-form" style="padding-top: 20px;">
                     <h1>Email:</h1>
-                    <input type="text" id="" name="fname" style="height: 20px; width: 400px;"><br>
+                    <input type="text" id="email_login" name="fname" style="height: 20px; width: 400px;"><br>
                     <h1>Password:</h1>
-                    <input type="text" id="" name="fname" style="height: 20px; width: 400px;"><br>                    
-                    <input type="submit" id="submit_school_name" value="Submit" style="margin-top: 10px;">
-                </form>
+                    <input type="password" id="password_login" name="fname" style="height: 20px; width: 400px;"><br>                    
+                    <button id="login_submit" style="margin-top: 10px;">Submit</button>
+                </div>
             </div>
         </header>
     </body>
