@@ -61,3 +61,28 @@ async function logout(){
       console.log(errorCode, errorMessage, email, credential);
     });
 }
+  var ProfDB = firebase.database().ref().child('Professor Database');
+    ProfDB.once("value").then(function(snapshot){
+    var prof_info=snapshot.val();
+    document.getElementById("teacher-rating-form").addEventListener("submit",function(e){
+      e.preventDefault();
+      var prof_name = document.getElementById("teacher_name").value;
+      console.log(Object.keys(prof_info).length);
+      const prof_keys= Object.keys(prof_info);
+      for (let i = 0; i < prof_keys.length; i++) {
+        prof_dict = prof_keys[i]
+        if (prof_info[prof_dict].teacher_name === teacher_name) {
+          var found_school_name = prof_info[prof_dict].school_name
+          var found_teacher_name = prof_info[prof_dict].teacher_name
+          var found_rating = prof_info[prof_dict].rating
+          var found_subject = prof_info[prof_dict].subject
+          document.getElementById("p_teacher_name").innerHTML = teacher_name
+          document.getElementById("p_school_name").innerHTML = school_name
+          document.getElementById("p_rating").innerHTML = rating
+          document.getElementById("p_class").innerHTML = subject
+        } else {
+           console.log("none found");
+        }
+      }
+    });
+  });
