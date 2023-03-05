@@ -12,8 +12,32 @@ body, html {height: 100%}
     background-position: center;
     background-size: cover;
 }
+.bgimg-registration {
+    background-image: url("./Registration\ background.jpg");
+    min-height: 150%;
+    background-position: center;
+    background-size: cover;
+}
+.bgimg-login {
+    background-image: url("./Registration\ background.jpg");
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
 
 h1 {
+    font-size: 40px;
+    font-family: "Franklin Gothic Medium";
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+label {
     font-size: 40px;
     font-family: "Franklin Gothic Medium";
     margin-bottom: 0px;
@@ -55,3 +79,11 @@ form {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e598e;}
+
+select {
+    height: 40px;
+}
+
+input {
+    height: 40px;
+}
