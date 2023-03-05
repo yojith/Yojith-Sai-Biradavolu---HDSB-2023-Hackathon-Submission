@@ -27,32 +27,25 @@
         </div>
 
         <!-- Header with image -->
-        <header class="bgimg-ratemyteacher w3-display-container" id="home">
+        <header class="bgimg-registration w3-display-container" id="home">
             <div class="w3-display-middle w3-center">
-                <form id="teacher-rating-form">
-                    <h1>School name:</h1>
-                    <input type="text" id="" name="fname" style="height: 20px; width: 400px;"><br>
-                    <h1>Teacher's name:</h1>
-                    <input type="text" id="" name="fname" style="height: 20px; width: 400px;"><br>
-                    <h1>Subject:</h1>
-                    <input type="text" id="" name="fname" style="height: 20px; width: 400px;"><br>
-                    <br><label for="rating">Give your teacher a rating:</label><br><br>
-                    <select name="rating" id="rating">
-                        <option value="10">10 - Amazing</option>
-                        <option value="9">9 - Great</option>
-                        <option value="8">8 - Very Good</option>
-                        <option value="7">7 - Good</option>
-                        <option value="6">6 - Fine</option>
-                        <option value="5">5 - Average</option>
-                        <option value="4">4 - Bad</option>
-                        <option value="3">3 - Very Bad</option>
-                        <option value="2">2 - Horrible</option>
-                        <option value="1">1 - Leaned Nothing</option>
-                    </select> 
-                    <h1>Write your review:</h1>
-                    <textarea id="review" name="review" rows="5" style="height: 20px; width: 400px;"></textarea><br>
-                    <input type="submit" id="submit_school_name" value="Submit" style="margin-top: 10px;">
-                </form>
+                <h1 style="font-size: 100px; padding-top: 50px;">Register</h1>
+                <div id="registration-form" style="padding-top: 20px;">
+                    <h1>Name:</h1>
+                    <input type="text" id="name_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>School:</h1>
+                    <input type="text" id="school_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Grade:</h1>
+                    <input type="text" id="grade_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Date of Birth:</h1>
+                    <input type="date" id="dob_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Email:</h1>
+                    <input type="text" id="email_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Password:</h1>
+                    <input type="password" id="password_register" name="fname" style="height: 20px; width: 400px;"><br><br>
+                    
+                    <button id="register_button" style="margin-top: 10px;">Submit</button>
+                </div>
             </div>
         </header>
     </body>
