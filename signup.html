@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Teacher Search Page</title>
+        <title>Tutor Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- links css stylesheets to html file -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-        <link rel='stylesheet' href="./styles.css">
+        <link rel="stylesheet" href="./styles.css">
     </head>
-    <body style="background-color: #b7e2ff;">
+    <body>
         <!-- Nav Bar -->
         <div class="w3-top">
             <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:3px;">
@@ -26,38 +26,25 @@
             </div>
         </div>
 
-        <!-- Webpage body -->
-        <div class="w3-container">
-            <br><br><br>
-            <h1 class="w3-center" style="color:black">Search for a Teacher</h1>
-
-            <input id="teacher_search" class="w3-input w3-border" type="text">
-            <label for="teacher_filter">Filter by:</label>
-            <select name="teacher_filter" id="teacher_filter">
-                <option value="name">Name</option>
-                <option value="school">School</option>
-            </select>
-
-            <div style="text-align: center;">
-                <button id="teacher_search_submit" class="w3-button w3-ripple w3-blue w3-block">Submit</button>
+        <!-- Header with image -->
+        <header class="bgimg-registration w3-display-container" id="home">
+            <div class="w3-display-middle w3-center">
+                <h1 style="font-size: 80px; padding-top: 50px;">Apply to be a Tutor</h1>
+                <div id="registration-form" style="padding-top: 20px;">
+                    <h1>Name:</h1>
+                    <input type="text" id="tutor_name_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Subject:</h1>
+                    <input type="text" id="tutor_subject_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Email:</h1>
+                    <input type="text" id="tutor_email_register" name="fname" style="height: 20px; width: 400px;"><br>
+                    <h1>Website:</h1>
+                    <h5 style="color:white">(Use if you have a tutoring website)</h5>
+                    <input type="text" id="tutor_website" name="fname" style="height: 20px; width: 400px;"><br>
+                    
+                    <button id="tutor_submit" style="margin-top: 10px;">Submit</button>
+                </div>
             </div>
-
-            <!-- Search results -->
-            <p>Results</p>
-            <table id="results_table" class="w3-table w3-striped">
-                <thead>
-                    <tr class="w3-blue">
-                        <th>Teacher Name</th>
-                        <th>School</th>
-                        <th>Email</th>
-                        <th>Course</th>
-                        <th>Rating</th>
-                        <th>Review</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+        </header>
     </body>
 
     <!-- linking to database -->

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>Student Profile</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- links css stylesheets to html file -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="./styles.css">
     </head>
-    <body>
+    <body style="background-color: #b7e2ff;">
         <!-- Nav Bar -->
         <div class="w3-top">
             <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:3px;">
@@ -27,11 +27,12 @@
         </div>
         <br><br><br>
 
-        <div>
-            Student's info
+        <div class="w3-container">
+            <h1 class="w3-center" style="color:black">Student's info</h1>
+            <div style="text-align: center;">
             <table id="student_info_table" class="w3-table w3-striped">
             <thead>
-                <tr class="w3-black">
+                <tr class="w3-blue">
                 </tr>
             </thead>
             <tbody>
@@ -44,36 +45,40 @@
                 <tr id="grade_row">
                     <td>Grade</td><td id="grade_cell"></td>
                 </tr>
-                <tr id="address_row">
-                    <td>Address</td><td id="address_cell"></td>
+                <tr id="dob_row">
+                    <td>Date of birth</td><td id="dob_cell"></td>
                 </tr>
                 <tr id="email_row">
-                    <td>email</td><td id="email_cell"></td>
-                </tr>
-                <tr id="phone_row">
-                    <td>phone</td><td id="phone_cell"></td>
-                </tr>                
+                    <td>Email</td><td id="email_cell"></td>
+                </tr>               
             </tbody>
             </table>
+            </div>
 
-            <button id="update">update</button>
-            <button id="save">save</button>
+            <div style="text-align: center;">
+                <button class="w3-button w3-blue" id="update_button">Update</button>
+                <button class="w3-button w3-blue" id="save_button">Save</button>
+            </div>
             <br>
-            Student's files
-            <table>
+            <h1 class="w3-center" style="color:black">Student's Files</h1>
+            <div style="text-align: center;">
+            <table class="w3-table w3-blue" id="file_table">
             <thead>
-                <tr class="w3-black">
+                <tr class="w3-blue">
                     <th>File name</th>
-                    <th>File type</th>
                     <th>Upload date</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
             </table>
+            <br>
+            <input type="file" id="select_file">
+            <button class="w3-button w3-blue" id="upload_button" class="w3-button">Upload files</button>
+            </div>
         </div>
     </body>
 
     <!-- linking to database -->
-    <!-- <script type="module" src="./main.js"></script> -->
+    <script type="module" src="./main.js"></script>
 </html>

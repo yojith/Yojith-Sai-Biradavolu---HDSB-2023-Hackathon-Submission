@@ -1,8 +1,8 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import {getFirestore, collection, setDoc, getDoc, addDoc, doc, query, where, getDocs} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import {getFirestore, collection, setDoc, doc, query, where, getDocs, getDoc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"
 import {getStorage, ref, uploadBytes, listAll, getMetadata} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js"
-
+ 
 const firebaseConfig = {
     apiKey: "AIzaSyA7pKGge0F1sj3ZFJHvnfnH5OVdFW4R078",
     authDomain: "hdsb-41db2.firebaseapp.com",
@@ -15,21 +15,18 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
+const auth = getAuth();
 const student_info = collection(db, "student info");
 const tutor_info = collection(db, "tutors");
-const teacher_rating = collection(db, "teacher ratings")
-const auth = getAuth();
 
+// Defining the database as a variable
 
 const login_submit = document.getElementById("login_submit");
 const logout_button = document.getElementById("logout_button");
 const register_button = document.getElementById("register_button");
 const login_button = document.getElementById("login_button");
 const register_submit = document.getElementById("register_submit");
-const tutor_submit = document.getElementById("tutor_submit");
 const tutor_search_submit = document.getElementById("tutor_search_submit");
-const teacher_search_submit = document.getElementById("teacher_search_submit");
-const rate_teacher_button = document.getElementById("submit_rating");
 const student_info_table = document.getElementById("student_info_table");
 const upload_button = document.getElementById("upload_button");
 const update_button = document.getElementById("update_button");
@@ -39,14 +36,12 @@ if (login_submit) {
     login_submit.addEventListener("click", function(){
         console.log("clicked");
         login();
-        setTimeout(redirect_home, 500)
     });
 }
 if (logout_button) {
     logout_button.addEventListener("click", function(){
         console.log("clicked");
         logout();
-        setTimeout(redirect_home, 500)
     });
 }
 if (register_submit) {
@@ -55,28 +50,10 @@ if (register_submit) {
         register();
     });
 }
-if (tutor_submit) {
-    tutor_submit.addEventListener("click", function(){
-        console.log("clicked");
-        register_tutor();
-    });
-}
 if (tutor_search_submit) {
     tutor_search_submit.addEventListener("click", function(){
         console.log("clicked");
         tutor_search();
-    });
-}
-if (teacher_search_submit) {
-    teacher_search_submit.addEventListener("click", function(){
-        console.log("clicked");
-        teacher_search();
-    });
-}
-if (rate_teacher_button) {
-    rate_teacher_button.addEventListener("click", function(){
-        console.log("clicked");
-        rateTeacher();
     });
 }
 if (upload_button) {
@@ -130,45 +107,6 @@ async function register(){
         const errorMessage = error.message;
         const email = error.email;
         console.log(errorCode, errorMessage, email);
-    });
-}
-
-async function rateTeacher() {
-    const school_name = document.getElementById("school_name").value;
-    const teacher_name = document.getElementById("teacher_name").value;
-    const course_taught = document.getElementById("course_taught").value;
-    const teacher_email = document.getElementById("teacher_email").value;
-    const rating = document.getElementById("rating").value;
-    const review = document.getElementById("review").value;
-
-    // setDoc(doc(teacher_rating, teacher_email), {
-    //     school: school_name,
-    //     name: teacher_name,
-    //     course: course_taught,
-    //     rating: rating,
-    //     review: review
-    // });
-    await addDoc(teacher_rating, {
-        school: school_name,
-        name: teacher_name,
-        course: course_taught,
-        email: teacher_email,
-        rating: rating,
-        review: review
-    });
-}
-
-async function register_tutor() {
-    const name = document.getElementById("tutor_name_register").value;
-    const subject = document.getElementById("tutor_subject_register").value;
-    const email = document.getElementById("tutor_email_register").value;
-    const website = document.getElementById("tutor_website").value;
-
-    await addDoc(tutor_info, {
-        name: name,
-        subject: subject,
-        email: email,
-        website: website
     });
 }
 
@@ -244,84 +182,37 @@ function delete_rows(table_id){
     document.getElementById(table_id).getElementsByTagName("tbody")[0].innerHTML = "";
 }
 
-async function data_read(search_parameter, search_input, search_type){
+async function data_read(search_parameter, search_input){
+    const tutor_query = query(tutor_info, where(search_parameter, "==", search_input));
+    const tutor_docs = await getDocs(tutor_query);
+  
     delete_rows("results_table");
     
-    if (search_type == "tutor") {
-        const tutor_query = query(tutor_info, where(search_parameter, "==", search_input));
-        const tutor_docs = await getDocs(tutor_query);
-
-        tutor_docs.forEach((doc) => {
-            const doc_data = doc.data()
-            const tutor_name = doc_data.name;
-            const tutor_email = doc_data.email;
-            const tutor_subject = doc_data.subject;
-            const tutor_website = doc_data.website;
-            add_rows_tutor("results_table", tutor_name, tutor_email, tutor_subject, tutor_website);
-        });
-    }
-    else if (search_type == "teacher") {
-        const teacher_query = query(teacher_rating, where(search_parameter, "==", search_input));
-        const teacher_docs = await getDocs(teacher_query);
-
-        teacher_docs.forEach((doc) => {
-            const doc_data = doc.data()
-            const teacher_name = doc_data.name;
-            const teacher_school = doc_data.school;
-            const teacher_email = doc_data.email;
-            const teacher_course = doc_data.course;
-            const teacher_rating = doc_data.rating;
-            const teacher_review = doc_data.review;
-            add_rows_teacher("results_table", teacher_name, teacher_school, teacher_email, teacher_course, teacher_rating, teacher_review);
-        });
-    }
+    tutor_docs.forEach((doc) => {
+        const doc_data = doc.data()
+        const tutor_name = doc_data.name;
+        const tutor_subject = doc_data.subject;
+        const tutor_rating = doc_data.rating;
+        add_rows("results_table", tutor_name, tutor_subject, tutor_rating);
+    });
 }
 
-function add_rows_tutor(table_id, tutor_name, tutor_email, tutor_subject, tutor_website){
+function add_rows(table_id, tutor_name, tutor_subject, tutor_rating){
     const results_table_body = document.getElementById(table_id).getElementsByTagName("tbody")[0];
     const row = results_table_body.insertRow(-1);
     const name_cell = row.insertCell(0);
-    const email_cell = row.insertCell(1);
-    const subject_cell = row.insertCell(2);
-    const rating_cell = row.insertCell(3);
+    const subject_cell = row.insertCell(1);
+    const rating_cell = row.insertCell(2);
   
     name_cell.innerHTML = tutor_name;
-    email_cell.innerHTML = tutor_email;
     subject_cell.innerHTML = tutor_subject;
-    rating_cell.innerHTML = tutor_website;
-}
-
-function add_rows_teacher(table_id, teacher_name, teacher_school, teacher_email, teacher_course, teacher_rating, teacher_review){
-    const results_table_body = document.getElementById(table_id).getElementsByTagName("tbody")[0];
-    const row = results_table_body.insertRow(-1);
-    const name_cell = row.insertCell(0);
-    const school_cell = row.insertCell(1);
-    const email_cell = row.insertCell(2);
-    const course_cell = row.insertCell(3);
-    const rating_cell = row.insertCell(4);
-    const review_cell = row.insertCell(5);
-  
-    name_cell.innerHTML = teacher_name;
-    school_cell.innerHTML = teacher_school;
-    email_cell.innerHTML = teacher_email;
-    course_cell.innerHTML = teacher_course;
-    rating_cell.innerHTML = teacher_rating;
-    review_cell.innerHTML = teacher_review;
+    rating_cell.innerHTML = tutor_rating;
 }
 
 async function tutor_search(){
     const tutor_filter = document.getElementById("tutor_filter").value;
     const search_input = document.getElementById("tutor_search").value;
-    data_read(tutor_filter, search_input, "tutor");
-}
-async function teacher_search(){
-    const tutor_filter = document.getElementById("teacher_filter").value;
-    const search_input = document.getElementById("teacher_search").value;
-    data_read(tutor_filter, search_input, "teacher");
-}
-
-function redirect_home() {
-    window.location.replace("http://localhost:8887/home.html");
+    data_read(tutor_filter, search_input);
 }
 
 async function upload_file(){
