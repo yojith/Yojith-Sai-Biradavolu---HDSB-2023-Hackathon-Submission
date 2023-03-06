@@ -1,4 +1,4 @@
-# Yojith-Sai-Biradavolu---HDSB-2023-Hackathon-Submission
+# STUDENT HELPER
 Yojith Sai Biradavolu, Mihir Pullakhandam, Evan Liu;
 Software hack for education theme;
 To open this project, download the zip file and extract the zip file. Keep all files in the same folder. A local server needs to be created to run the website, using something such as 200 OK Web Server extension for chrome. Otherwise, a CORS error will be encountered. Open the home.html file and navigate to other pages from that page. A registered account will be needed for some features, so click register to create an account and then login in the navigation bar at the top. A real email and a password of 6 characters or more is required. To access student portfolio/profile, click on the username at nav bar. Please be wary when entering personal information.
